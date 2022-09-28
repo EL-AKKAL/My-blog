@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone');
-            $table->boolean('status');
+            $table->string('phone')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -10,3 +10,6 @@
 .ck-editor__main, .ck-content{
     height: 320px !important;
 }
+.Pbody *{
+    font-size: 17px !important;
+}

@@ -47,7 +47,7 @@ class categoryController extends Controller
             'slug' =>$request->slug,
         ]);
         session()->flash('message','A new Category has been added successfully');
-        return redirect('admin');
+        return redirect('admin/category');
     }
 
     /**

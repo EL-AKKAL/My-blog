@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[homeController::class,'index'])->name('home');
 
 //---------------------------------- user show post
-Route::get('post', [homeController::class,'post'])->name('blog');
+Route::get('post/{slug?}', [homeController::class,'post'])->name('blog');
+
+//---------------------------------- user show posts by tag name
+Route::get('post/tag/{tag}', [homeController::class,'showPostsByTag'])->name('tagPosts');
+
+//---------------------------------- user show posts by category name
+Route::get('post/category/{category}', [homeController::class,'showPostsByCategory'])->name('categoryPosts');
 
 //---------------------------------- admin home
 Route::get('admin', [AdminHomeController::class,'index'])->name('admin');

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 module.exports = {
@@ -87,6 +88,7 @@ module.exports = {
     "disabled",
   ],
   plugins: [
+    require('@tailwindcss/line-clamp'),
     require("@tailwindcss/forms"),
     plugin(function ({ addComponents, theme }) {
       const screens = theme("screens", {});

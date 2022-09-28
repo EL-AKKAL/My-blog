@@ -24,7 +24,7 @@
                 <div class="text-blueGray-400 text-center mb-3 font-bold">
                   <small>Fill all Inputs Before Submiting</small>
                 </div>
-                <form action="{{ route('post.store') }}" role="form" method="POST">
+                <form action="{{ route('post.store') }}" role="form" method="POST" enctype="multipart/form-data">
                     @csrf
                   <div class="relative w-full mb-3">
                     <label class="block uppercase text-blueGray-600 text-sm font-bold mb-2" for="title">
@@ -59,12 +59,35 @@
                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="body">
                       Blog Body
                     </label>
-                    
-                    
                     <textarea name="body" id="editor" cols="30" rows="10"></textarea>
-
                   </div>
-                  <div>
+                  <h3 class="mb-3 mt-5 font-semibold text-gray-900">Tags</h3>
+                  <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg flex flex-wrap">
+                  @forelse ($tags as $tag)
+                  <li class="min-w-48 border border-gray-200 ">
+                    <div class="flex items-center pl-3">
+                        <input id="tag-{{$tag->id}}" name="tags[]" type="checkbox" value="{{$tag->id}}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 ">
+                        <label for="tag-{{$tag->id}}" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">{{$tag->name}}</label>
+                    </div>
+                  </li>
+                  @empty
+                      <h4>Tags Database is empty</h4>
+                  @endforelse
+                  </ul>
+                  <h3 class="mb-3 mt-5 font-semibold text-gray-900">Tags</h3>
+                  <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg flex flex-wrap mb-6">
+                  @forelse ($categories as $category)
+                  <li class="min-w-48 border border-gray-200 ">
+                    <div class="flex items-center pl-3">
+                        <input id="category-{{$category->id}}" name="categories[]" type="checkbox" value="{{$category->id}}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 ">
+                        <label for="category-{{$category->id}}" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">{{$category->name}}</label>
+                    </div>
+                  </li>
+                  @empty
+                      <h4>Categories Database is empty</h4>
+                  @endforelse
+                  </ul>
+                  <div class="w-full mb-10">
                     <label class="inline-flex items-center cursor-pointer" for="status">
                       <input id="customCheckLogin" type="checkbox" name="status" class="border-2 border-solid border-blue-500 form-checkbox rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"/>
                       <span class="ml-2 text-sm font-semibold text-blueGray-600">Publish (if you choose not to publish , this post will be saved in your profile only)</span>

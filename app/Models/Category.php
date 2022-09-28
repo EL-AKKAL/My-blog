@@ -13,4 +13,15 @@ class Category extends Model
                             'name',
                             'slug',
                         ];
+
+                        
+        public function posts()
+        {
+            return $this->belongsToMany(Post::class,'category_posts')->orderByPivot('created_at','desc')->paginate(6);
+        }
+
+        public function getRouteKeyName()
+        {
+            return 'slug';   
+        }
 }

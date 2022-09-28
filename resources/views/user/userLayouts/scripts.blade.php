@@ -4,4 +4,7 @@
 <script>
     //Init tooltips
     tippy('.avatar')
+
+
+  
 </script>

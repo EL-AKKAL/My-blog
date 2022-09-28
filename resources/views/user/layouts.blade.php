@@ -7,6 +7,8 @@
 
     <body class="bg-gray-200 font-sans leading-normal tracking-normal">
 
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=1281302982703950&autoLogAppEvents=1" nonce="H6LK1Vvr"></script>
         @include('user.userLayouts.header')
 
         <!--Container-->

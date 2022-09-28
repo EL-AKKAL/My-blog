@@ -88,9 +88,13 @@
                                     </td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
                                         <div class="relative w-full pl-0 px-4 max-w-full flex-grow flex-1 text-left">
-                                            <button class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            <button class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"><i class="fa-sharp fa-solid fa-eraser"></i></button>
-                                            <button class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"><i class="fa-solid fa-eye"></i></button>
+                                                <a href="{{ route('post.edit',$post) }}"  class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <form action="{{ route('post.destroy',$post->id) }}" class="inline-block" method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button onclick="return confirm('do you really want to delete Post with ID : {{$post->id}} ?')" type="submit" class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"><i class="fa-sharp fa-solid fa-eraser"></i></button>
+                                                </form>
+                                                <button class="bg-indigo-500 hover:text-pink-900 hover:bg-white text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"><i class="fa-solid fa-eye"></i></button>
                                         </div>
                                     </td>
                                 </tr>

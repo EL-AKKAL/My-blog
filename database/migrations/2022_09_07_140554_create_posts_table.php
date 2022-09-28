@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('subtitle',100);
             $table->string('slug',100);
             $table->text('body');
-            $table->string('image');
-            $table->boolean('status');
-            $table->bigInteger('posted_by');
-            $table->integer('like');
-            $table->integer('dislike');
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(0);
+            $table->bigInteger('posted_by')->nullable();
+            $table->integer('like')->default(0);
+            $table->integer('dislike')->default(0);
             $table->timestamps();
         });
     }
